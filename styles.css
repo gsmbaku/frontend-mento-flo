@@ -100,11 +100,14 @@ h6 {
   font-family: var(--font-raleway);
   font-size: 16px;
   font-weight: 400;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
-.nav a:hover {
-  opacity: 0.8;
+.nav a:hover,
+.nav a:focus {
+  font-weight: 700;
+  text-decoration: underline;
 }
 
 /* Hero Section */
@@ -172,7 +175,7 @@ h6 {
   font-weight: 700;
   cursor: pointer;
   box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.16);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
   width: 280px;
   height: 56px;
   display: flex;
@@ -180,8 +183,9 @@ h6 {
   justify-content: center;
 }
 
-.btn-primary:hover {
-  transform: translateY(-2px);
+.btn-primary:hover,
+.btn-primary:focus {
+  background: linear-gradient(135deg, hsl(176, 68%, 75%), hsl(198, 60%, 65%));
   box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.24);
 }
 
@@ -283,10 +287,13 @@ h6 {
   width: fit-content;
   border-bottom: 1px solid var(--teal-200);
   padding-bottom: 2px;
+  transition: all 0.3s ease;
 }
 
-.cta-link:hover {
-  opacity: 0.8;
+.cta-link:hover,
+.cta-link:focus {
+  color: var(--white);
+  border-bottom-color: var(--white);
 }
 
 /* Testimonials Cards */
@@ -430,11 +437,17 @@ h6 {
   max-width: 480px;
   height: 48px;
   font-size: 14px;
-  color: #c0c0c0;
+  color: #333;
+  transition: all 0.3s ease;
+  outline: none;
 }
 
 .email-input::placeholder {
   color: #c0c0c0;
+}
+
+.email-input:focus {
+  box-shadow: 0 0 0 2px var(--cyan-500);
 }
 
 .btn-secondary {
@@ -448,7 +461,7 @@ h6 {
   font-weight: 700;
   cursor: pointer;
   box-shadow: 2px 3px 6px rgba(7, 4, 59, 0.16);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
   width: 200px;
   height: 48px;
   display: flex;
@@ -456,8 +469,9 @@ h6 {
   justify-content: center;
 }
 
-.btn-secondary:hover {
-  transform: translateY(-2px);
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background: linear-gradient(135deg, hsl(176, 68%, 75%), hsl(198, 60%, 65%));
   box-shadow: 4px 6px 12px rgba(7, 4, 59, 0.24);
 }
 
@@ -555,11 +569,12 @@ h6 {
   color: var(--white);
   text-decoration: none;
   font-size: 16px;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.footer-link-group a:hover {
-  opacity: 0.8;
+.footer-link-group a:hover,
+.footer-link-group a:focus {
+  font-weight: 700;
 }
 
 .social-links {
@@ -571,16 +586,19 @@ h6 {
   width: 31px;
   height: 31px;
   border-radius: 50%;
-  background-color: var(--navy-800);
+  border: 1px solid var(--white);
+  background-color: transparent;
   color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.social-link:hover {
-  background-color: var(--teal-200);
+.social-link:hover,
+.social-link:focus {
+  border-color: var(--cyan-500);
+  color: var(--cyan-500);
 }
 
 /* Background patterns */
@@ -852,6 +870,10 @@ h6 {
     max-width: 100%;
   }
 
+  .testimonials::before {
+    left: 30px;
+  }
+
   .cta-section {
     margin: 0 var(--spacing-sm);
     padding: var(--spacing-lg) var(--spacing-sm);
@@ -868,14 +890,24 @@ h6 {
   .footer {
     padding: var(--spacing-2xl) var(--spacing-sm);
     padding-top: calc(var(--spacing-2xl) + 137px);
+    margin-top: 0;
   }
 
+  .testimonials::after {
+    bottom: -195px;
+    height: 195px;
+  }
+
+  /* Override grid layout for mobile - stack everything */
   .footer-main {
+    display: flex;
+    flex-direction: column;
     gap: var(--spacing-2xl);
   }
 
   .footer-info {
     gap: var(--spacing-2xl);
+    flex-direction: column;
   }
 
   .footer-links {
@@ -885,6 +917,11 @@ h6 {
 
   .social-links {
     justify-content: center;
+    align-self: center;
+  }
+
+  .footer-content {
+    padding: 1rem;
   }
 }
 
