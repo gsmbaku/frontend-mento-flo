@@ -875,8 +875,12 @@ h6 {
   }
 
   .cta-section {
-    margin: 0 var(--spacing-sm);
-    padding: var(--spacing-lg) var(--spacing-sm);
+    margin-left: var(--spacing-sm);
+    margin-right: var(--spacing-sm);
+    margin-top: -137px;
+    margin-bottom: -137px;
+    padding: var(--spacing-2xl) var(--spacing-md);
+    max-width: calc(100% - 2 * var(--spacing-sm));
   }
 
   .cta-section h2 {
