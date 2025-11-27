@@ -129,9 +129,8 @@ h6 {
 }
 
 .hero-illustration {
-  width: 720px;
-  height: 534px;
   max-width: 100%;
+  height: auto;
 }
 
 .hero-text {
@@ -614,78 +613,282 @@ h6 {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  body::before {
-    background-image: url("./images/bg-curvy-mobile.svg");
-  }
-
-  .container {
-    padding: 0 var(--spacing-sm);
-  }
-
+/* Tablet (up to 1024px) */
+@media (max-width: 1024px) {
   .header-content {
-    flex-direction: column;
-    gap: var(--spacing-sm);
+    padding: 0 var(--spacing-md);
+  }
+
+  .logo {
+    height: 40px;
+    width: auto;
   }
 
   .nav {
-    gap: var(--spacing-sm);
+    gap: var(--spacing-lg);
+  }
+
+  .hero-content {
+    padding: 0 var(--spacing-md);
+    max-width: 600px;
   }
 
   .hero h1 {
-    font-size: 28px;
+    font-size: 32px;
   }
 
   .hero p {
-    font-size: 16px;
+    font-size: 18px;
   }
 
+  .testimonials {
+    background-color: var(--navy-900);
+    padding: var(--spacing-5xl) 0;
+    padding-bottom: calc(var(--spacing-5xl));
+    position: relative;
+    margin-bottom: 0;
+  }
+
+  /* Keep features in 2x2 grid on tablet */
   .features-content {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-2xl);
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl) var(--spacing-2xl);
+    padding: 0 var(--spacing-md);
   }
 
+  /* Stack testimonial section (image + text) */
   .testimonial-content {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
+    gap: var(--spacing-2xl);
+    padding: 0 var(--spacing-md);
+  }
+
+  .testimonials::before {
+    content: url("./images/bg-quotes.png");
+    position: absolute;
+    top: -78px;
+    left: 235px;
+    font-size: 200px;
+    color: var(--teal-200);
+    font-family: "Nunito Sans", sans-serif;
+    line-height: 1;
+    z-index: 0;
   }
 
   .testimonial-illustration {
     width: 100%;
+    max-width: 500px;
     height: auto;
   }
 
+  .testimonial h2 {
+    font-size: 32px;
+  }
+
+  /* Stack testimonial cards in single column */
   .testimonials-content {
     flex-direction: column;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-lg);
+    align-items: center;
+    padding: 0 var(--spacing-md);
+  }
+
+  .testimonial-card {
+    max-width: 500px;
+    width: 100%;
+  }
+
+  /* Stack CTA input and button */
+  .cta-section {
+    padding: var(--spacing-2xl) var(--spacing-md);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -137px;
+    margin-bottom: -137px;
+    top: 100px;
+    max-width: 480px;
   }
 
   .email-signup {
     flex-direction: column;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-md);
   }
 
   .email-input,
   .btn-secondary {
     width: 100%;
+    max-width: 100%;
+  }
+
+  /* Stack footer elements */
+  .footer {
+    padding: var(--spacing-3xl) var(--spacing-md);
+    padding-top: calc(var(--spacing-3xl) + 137px);
+    margin-top: 120px;
+  }
+
+  .footer-content {
+    max-width: 600px;
+    margin: 0 auto;
   }
 
   .footer-main {
-    flex-direction: column;
-    gap: var(--spacing-lg);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-3xl);
   }
 
   .footer-info {
+    flex-direction: row;
+    gap: var(--spacing-2xl);
+    width: 100%;
+  }
+
+  .address-section {
+    max-width: 100%;
+  }
+
+  /* Put footer-links and social-links in same row */
+  .footer-links {
+    grid-column: 1;
+    flex-direction: row;
+    gap: var(--spacing-5xl);
+  }
+
+  .social-links {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  /* Override grid to put links and social in same row */
+  .footer-main {
+    display: flex;
     flex-direction: column;
-    gap: var(--spacing-lg);
+  }
+
+  .footer-main {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto auto;
+    gap: var(--spacing-3xl);
+  }
+
+  .footer-info {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .footer-links {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .social-links {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: flex-start;
+  }
+}
+
+/* Mobile (up to 768px) */
+@media (max-width: 768px) {
+  .hero {
+    background-image: url("./images/bg-curvy-mobile.svg");
+    background-size: cover;
+    background-position: center bottom;
+    padding: var(--spacing-3xl) 0 var(--spacing-4xl);
+  }
+
+  .header-content {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .logo {
+    height: 32px;
+    width: auto;
+  }
+
+  .nav {
+    gap: var(--spacing-md);
+  }
+
+  .nav a {
+    font-size: 14px;
+  }
+
+  .hero-content {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .features-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-3xl);
+    padding: 0 var(--spacing-sm);
+  }
+
+  .testimonial h2 {
+    font-size: 20px;
+  }
+
+  .testimonial p {
+    font-size: 14px;
+  }
+
+  .testimonials-content {
+    padding: 0 var(--spacing-sm);
+    gap: var(--spacing-md);
+  }
+
+  .testimonial-card {
+    max-width: 100%;
+  }
+
+  .cta-section {
+    margin: 0 var(--spacing-sm);
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+
+  .cta-section h2 {
+    font-size: 20px;
+  }
+
+  .email-signup {
+    gap: var(--spacing-md);
+  }
+
+  .footer {
+    padding: var(--spacing-2xl) var(--spacing-sm);
+    padding-top: calc(var(--spacing-2xl) + 137px);
+  }
+
+  .footer-main {
+    gap: var(--spacing-2xl);
+  }
+
+  .footer-info {
+    gap: var(--spacing-2xl);
   }
 
   .footer-links {
     flex-direction: column;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-2xl);
+  }
+
+  .social-links {
+    justify-content: center;
   }
 }
 
+/* Small mobile (up to 375px) */
 @media (max-width: 375px) {
   .hero h1 {
     font-size: 24px;
