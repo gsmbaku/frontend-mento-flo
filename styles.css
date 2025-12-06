@@ -322,6 +322,7 @@ h6 {
   display: flex;
   gap: var(--spacing-xl);
   position: relative;
+  z-index: 2;
 }
 
 .testimonials-content::before {
@@ -329,7 +330,7 @@ h6 {
   position: absolute;
   top: -35px;
   left: -10px;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
 }
 
@@ -699,7 +700,7 @@ h6 {
 
   .testimonials-content::before {
     top: -35px;
-    left: calc(50% - min(250px, 45vw) - 20px);
+    left: calc(50% - min(250px, 45vw) - 10px);
   }
 
   .testimonial-card {
@@ -862,7 +863,7 @@ h6 {
 
   .testimonials-content::before {
     top: -35px;
-    left: -10px;
+    left: 7px;
   }
 
   .cta-section {
